@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @school_class.day %>
+</p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @school_class.teacher_id %>
+</p>
+
+<table>
+  <tbody>
+    <% @school_classes.each do |school_class| %>
+      <tr>
+        <td><%= school_class.day %></td>
+		<td><%= school_class.teacher.try(:firstname) %></td>
+		<td><%= school_class.teacher.try(:middlename) %></td>
+		<td><%= school_class.teacher.try(:subject) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<%= link_to 'Edit', edit_school_class_path(@school_class) %> |
+<%= link_to 'Back', school_classes_path %>
